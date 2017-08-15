@@ -69,7 +69,7 @@ final class Library {
     
     private class var singleton: Library {
         struct SingletonWrapper {
-            static let singleton = Library(stockLevel: 2)
+            static let singleton = Library(stockLevel: 3)
         }
         return SingletonWrapper.singleton
     }
@@ -103,7 +103,7 @@ var queue = DispatchQueue(label: "workQ", attributes: .concurrent)
 var group = DispatchGroup()
 
 print("开始...")
-for i in 1...3 {
+for i in 1...30 {
     queue.async(group: group) {
         var book = Library.checkoutBook(reader: "reader#\(i)")
         if book != nil {
