@@ -26,6 +26,7 @@
 		850FD94D1F408E680010F659 /* Swift设计模式 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Swift设计模式"; sourceTree = BUILT_PRODUCTS_DIR; };
 		850FD9501F408E680010F659 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		850FD95C1F4091770010F659 /* 01.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 01.playground; sourceTree = "<group>"; };
+		8529ECA01F42D0BD007C397C /* 04.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 04.playground; sourceTree = "<group>"; };
 		859BB7C31F427F060060B19E /* 02.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 02.playground; sourceTree = "<group>"; };
 		859BB7C51F42A0180060B19E /* 03.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 03.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +65,7 @@
 				850FD9571F408F5F0010F659 /* 01 对象模板模式 */,
 				859BB7C21F427EF30060B19E /* 02 原型模式 */,
 				859BB7C41F42A00D0060B19E /* 03 单例模式 */,
+				8529EC9F1F42D0B3007C397C /* 04 对象池模式 */,
 			);
 			path = "Swift设计模式";
 			sourceTree = "<group>";
@@ -74,6 +76,14 @@
 				850FD95C1F4091770010F659 /* 01.playground */,
 			);
 			path = "01 对象模板模式";
+			sourceTree = "<group>";
+		};
+		8529EC9F1F42D0B3007C397C /* 04 对象池模式 */ = {
+			isa = PBXGroup;
+			children = (
+				8529ECA01F42D0BD007C397C /* 04.playground */,
+			);
+			path = "04 对象池模式";
 			sourceTree = "<group>";
 		};
 		859BB7C21F427EF30060B19E /* 02 原型模式 */ = {
