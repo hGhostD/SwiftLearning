@@ -26,6 +26,7 @@
 		850FD94D1F408E680010F659 /* Swift设计模式 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Swift设计模式"; sourceTree = BUILT_PRODUCTS_DIR; };
 		850FD9501F408E680010F659 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		850FD95C1F4091770010F659 /* 01.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 01.playground; sourceTree = "<group>"; };
+		859BB7C31F427F060060B19E /* 02.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 02.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +61,7 @@
 			children = (
 				850FD9501F408E680010F659 /* main.swift */,
 				850FD9571F408F5F0010F659 /* 01 对象模板模式 */,
+				859BB7C21F427EF30060B19E /* 02 原型模式 */,
 			);
 			path = "Swift设计模式";
 			sourceTree = "<group>";
@@ -70,6 +72,14 @@
 				850FD95C1F4091770010F659 /* 01.playground */,
 			);
 			path = "01 对象模板模式";
+			sourceTree = "<group>";
+		};
+		859BB7C21F427EF30060B19E /* 02 原型模式 */ = {
+			isa = PBXGroup;
+			children = (
+				859BB7C31F427F060060B19E /* 02.playground */,
+			);
+			path = "02 原型模式";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +275,7 @@
 				850FD9561F408E680010F659 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
