@@ -29,11 +29,9 @@ class DataSourceBase: EmpployeeDataSource {
     }
     
     func search(_ selector: ((Employee) -> Bool)) -> [Employee] {
-        var results = [Employee]()
-        employees.forEach {
-            if selector($0) {
-                results.append($0)
-            }
+        
+        let results = employees.filter {
+            selector($0)
         }
         return results
     }
@@ -74,7 +72,6 @@ class SearchTool {
         }
         return results
     }
-    
     
     func search(text: String, type: SearchType) -> [Employee] {
         var results = [Employee]()
