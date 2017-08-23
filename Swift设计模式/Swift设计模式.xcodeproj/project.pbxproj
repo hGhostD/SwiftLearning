@@ -31,6 +31,7 @@
 		852FF4151F4570CD00FAE699 /* 06.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 06.playground; sourceTree = "<group>"; };
 		852FF4171F45818D00FAE699 /* 07.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 07.playground; sourceTree = "<group>"; };
 		853521801F43D07C006A95A1 /* 05.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 05.playground; sourceTree = "<group>"; };
+		855A4EC01F4DB93C00F9E989 /* 09.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 09.playground; sourceTree = "<group>"; };
 		855E286C1F4AC32000396660 /* 08.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 08.playground; sourceTree = "<group>"; };
 		859BB7C31F427F060060B19E /* 02.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 02.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +75,7 @@
 				852FF4141F4570C000FAE699 /* 06 建造者模式 */,
 				852FF4161F45817D00FAE699 /* 07 适配器模式 */,
 				855E286B1F4AC31100396660 /* 08 桥接模式 */,
+				855A4EBF1F4DB92F00F9E989 /* 09 装饰器模式 */,
 			);
 			path = "Swift设计模式";
 			sourceTree = "<group>";
@@ -124,6 +126,14 @@
 				853521801F43D07C006A95A1 /* 05.playground */,
 			);
 			path = "05 工厂模式";
+			sourceTree = "<group>";
+		};
+		855A4EBF1F4DB92F00F9E989 /* 09 装饰器模式 */ = {
+			isa = PBXGroup;
+			children = (
+				855A4EC01F4DB93C00F9E989 /* 09.playground */,
+			);
+			path = "09 装饰器模式";
 			sourceTree = "<group>";
 		};
 		855E286B1F4AC31100396660 /* 08 桥接模式 */ = {
