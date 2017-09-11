@@ -28,6 +28,7 @@
 		850FD95C1F4091770010F659 /* 01.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 01.playground; sourceTree = "<group>"; };
 		8529ECA01F42D0BD007C397C /* 04.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 04.playground; sourceTree = "<group>"; };
 		852B7C8A1F4326180015A65E /* 03.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 03.playground; sourceTree = "<group>"; };
+		852D88171F6669A60053759E /* 15.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 15.playground; sourceTree = "<group>"; };
 		852FF4151F4570CD00FAE699 /* 06.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 06.playground; sourceTree = "<group>"; };
 		852FF4171F45818D00FAE699 /* 07.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 07.playground; sourceTree = "<group>"; };
 		853521801F43D07C006A95A1 /* 05.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 05.playground; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 				8569F3941F5ADDA400798E6C /* 12 享元模式 */,
 				85657F321F5C2609005B9D50 /* 13 代理模式 */,
 				85414F7B1F5D9C9600131530 /* 14 责任链模式 */,
+				852D88161F6669990053759E /* 15 命令模式 */,
 			);
 			path = "Swift设计模式";
 			sourceTree = "<group>";
@@ -112,6 +114,14 @@
 				852B7C8A1F4326180015A65E /* 03.playground */,
 			);
 			path = "03 单例模式";
+			sourceTree = "<group>";
+		};
+		852D88161F6669990053759E /* 15 命令模式 */ = {
+			isa = PBXGroup;
+			children = (
+				852D88171F6669A60053759E /* 15.playground */,
+			);
+			path = "15 命令模式";
 			sourceTree = "<group>";
 		};
 		852FF4141F4570C000FAE699 /* 06 建造者模式 */ = {
