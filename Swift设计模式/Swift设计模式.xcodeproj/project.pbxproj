@@ -42,6 +42,7 @@
 		8586134C1F68FA65001267DD /* 16.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 16.playground; sourceTree = "<group>"; };
 		859BB7C31F427F060060B19E /* 02.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 02.playground; sourceTree = "<group>"; };
 		85B8A47E1F52E8520077EAF9 /* 10.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 10.playground; sourceTree = "<group>"; };
+		85D8BB2A1F72055200FEED21 /* 18.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 18.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +93,7 @@
 				852D88161F6669990053759E /* 15 命令模式 */,
 				8586134B1F68FA55001267DD /* 16 中介者模式 */,
 				853F30041F710DF700714F2F /* 17 观察者模式 */,
+				85D8BB291F72029A00FEED21 /* 18 备忘录模式 */,
 			);
 			path = "Swift设计模式";
 			sourceTree = "<group>";
@@ -230,6 +232,14 @@
 				85B8A47E1F52E8520077EAF9 /* 10.playground */,
 			);
 			path = "10 组合模式";
+			sourceTree = "<group>";
+		};
+		85D8BB291F72029A00FEED21 /* 18 备忘录模式 */ = {
+			isa = PBXGroup;
+			children = (
+				85D8BB2A1F72055200FEED21 /* 18.playground */,
+			);
+			path = "18 备忘录模式";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

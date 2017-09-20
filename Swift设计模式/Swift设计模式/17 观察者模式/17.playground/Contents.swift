@@ -10,7 +10,7 @@ protocol Observer: class {
 }
 
 protocol Subject {
-    func addObservers(observer: Observer)
+    func addObservers(observers: [Observer])
     func removeObserver(oberver: Observer)
 }
 
@@ -28,10 +28,8 @@ class SubjectBase: Subject {
     
     func removeObserver(oberver: Observer) {
         collectionQueue.sync(flags: DispatchWorkItemFlags.barrier) {
-            observers.forEach {
-                observers = observers.filter {
-                    $0 != observer
-                }
+            observers = observers.filter {_ in
+                return true
             }
         }
     }
@@ -84,12 +82,9 @@ class AuthenticationManager: SubjectBase {
             result = true
             print("User \(user) is authenticated")
             log.logActivity(user)
-            cache.loadFiles(user: user)
-            montitor.monitorSuspiciousActivity = false
         }else {
             print("Failed authentication attempt")
             log.logActivity("Failed authentication : \(user)")
-            montitor.monitorSuspiciousActivity = true
         }
         
         sendNotification(user: user, success: result)
