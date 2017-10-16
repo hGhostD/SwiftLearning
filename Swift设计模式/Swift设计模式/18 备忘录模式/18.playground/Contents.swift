@@ -55,7 +55,7 @@ class LedgerCommand {
     private let instructons: (Ledger) -> Void
     private let receiver: Ledger
     
-    init(instruction: (Ledger) -> Void, receiver: Ledger) {
+    init(instruction: @escaping (Ledger) -> Void, receiver: Ledger) {
         self.instructons = instruction
         self.receiver = receiver
     }
