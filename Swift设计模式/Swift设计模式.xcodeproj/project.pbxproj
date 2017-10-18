@@ -26,6 +26,7 @@
 		850FD94D1F408E680010F659 /* Swift设计模式 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Swift设计模式"; sourceTree = BUILT_PRODUCTS_DIR; };
 		850FD9501F408E680010F659 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		850FD95C1F4091770010F659 /* 01.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 01.playground; sourceTree = "<group>"; };
+		852490431F972C0F004EE11B /* 20.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 20.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8529ECA01F42D0BD007C397C /* 04.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 04.playground; sourceTree = "<group>"; };
 		852B7C8A1F4326180015A65E /* 03.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 03.playground; sourceTree = "<group>"; };
 		852D88171F6669A60053759E /* 15.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 15.playground; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 				853F30041F710DF700714F2F /* 17 观察者模式 */,
 				85D8BB291F72029A00FEED21 /* 18 备忘录模式 */,
 				85F34D6C1F945EAF00A800B9 /* 19 策略模式 */,
+				852490421F972C0F004EE11B /* 20 访问者模式 */,
 			);
 			path = "Swift设计模式";
 			sourceTree = "<group>";
@@ -106,6 +108,14 @@
 				850FD95C1F4091770010F659 /* 01.playground */,
 			);
 			path = "01 对象模板模式";
+			sourceTree = "<group>";
+		};
+		852490421F972C0F004EE11B /* 20 访问者模式 */ = {
+			isa = PBXGroup;
+			children = (
+				852490431F972C0F004EE11B /* 20.playground */,
+			);
+			path = "20 访问者模式";
 			sourceTree = "<group>";
 		};
 		8529EC9F1F42D0B3007C397C /* 04 对象池模式 */ = {
