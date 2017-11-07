@@ -1,6 +1,8 @@
 import Cocoa
-
-
+/*:
+> 其实这个设计模式就是我们通常概念的 **面向对象** 编程。使用 **类** 或者 **结构体** 作为数据类型及其逻辑的规范。创建对象时使用 **模板**，并在初始化是完成数据赋值。赋值时，要么使用模板中的 **默认值**，要么使用类或者结构体的 **构造器** 提供数值。
+ 
+*/
 ///模拟商品数据
 var products = [("Ka","A boat for one person",25.0,10),
                 ("Li","Protecctive and fashionable",48.95,14),
@@ -31,7 +33,9 @@ struct productStr {
     let number: Int
 }
 let proStr = productStr(name: "KA", detail: "st", price: 10.2, number: 10)
-//class
+/*:
+ > 支持封装是使用 类 或者 结构体 作为数据对象模板最重要的优点。
+ */
 class productClass {
     open var name: String //open 最高的开放权限
     public var detail: String //publish公开的访问权限 internal 为默认权限
@@ -44,6 +48,25 @@ class productClass {
         self.price = price
         self.number = number
     }
+    // 添加一个 计算属性，并实现计算库存总值的方法
+    var stockValue: Double {
+        get {
+            return self.price * Double(self.number)
+        }
+    }
+    // 演化 -->  可以通过重写 set get 方法来确保值有意义
+    private var inValue = 0
+    var outValue: Int {
+        get {
+            return inValue
+        }
+        set {
+            inValue = max(0, newValue)
+        }
+    }
 }
 let proClass = productClass(name: "FA", detail: "fi", price: 20.2, number: 3)
-
+proClass.outValue = 10
+proClass.outValue
+proClass.outValue = -10
+proClass.outValue

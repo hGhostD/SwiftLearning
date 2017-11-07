@@ -1,7 +1,5 @@
-//: Playground - noun: a place where people can play
-
 import Cocoa
-///使用访问者模式,可以在不修改类的源代码和不创建新的子类的情况下拓展类的行为
+//: >使用访问者模式,可以在不修改类的源代码和不创建新的子类的情况下拓展类的行为
 
 class Circle {
     let radius: Float
