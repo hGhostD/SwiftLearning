@@ -8,7 +8,8 @@ var products = [("Ka","A boat for one person",25.0,10),
                 ("Li","Protecctive and fashionable",48.95,14),
                 ("So","FIAFA size and weight",19.5,32)]
 
-/* 以下是错误的设计模式--- 由于对数据的过度依赖index 形成了高耦合 难以进行维护
+/*:
+ 以下是错误的设计模式---由于对数据的过度依赖 index 形成了高耦合,难以进行维护
     当从模拟商品数据删除某一项数据时 会造成程序的崩溃
  */
 ///计算商品税 20%
