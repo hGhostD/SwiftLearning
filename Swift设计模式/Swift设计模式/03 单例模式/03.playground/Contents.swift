@@ -1,8 +1,21 @@
-//: Playground - noun: a place where people can play
-
 import Cocoa
+/*:
+ > 单例模式能够确保某个类型的对象在应用中只存一个实例。
 
+ 创建单例模式可以像 Objective-C 一样创建一个单线程进行初始化。但是在 Swift 中有更好的方法。
+ 
+ Tips:这里遇到一个问题，如果创建单例模式的类不引用 NSOject 继承的话，就会报错。
+ */
+final class Single: NSObject {
+    public static let shared = Single()
+    private override init() {}
+    
+    var title: String = ""
+    var number: Int = 0
+}
 
+Single.shared.title = "标题"
+Single.shared.title
 ///简单单例模式 可以直接通过 let logger = Logger() 创建一个全局常量,是惰性初始化,能够保证线程安全
 final class Logger {
     private var data = [String]()
@@ -78,5 +91,6 @@ let hu2 = BackupServer(name: "hu2")
 
 hu.backup(item: item)
 hu.backup(item: item2)
+hu2.backup(item: item)
 
 logger.pringLog()
