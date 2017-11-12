@@ -3,12 +3,10 @@ import Cocoa
  > 单例模式能够确保某个类型的对象在应用中只存一个实例。
 
  创建单例模式可以像 Objective-C 一样创建一个单线程进行初始化。但是在 Swift 中有更好的方法。
- 
- Tips:这里遇到一个问题，如果创建单例模式的类不引用 NSOject 继承的话，就会报错。
  */
-final class Single: NSObject {
+final class Single{
     public static let shared = Single()
-    private override init() {}
+    private init() {}
     
     var title: String = ""
     var number: Int = 0

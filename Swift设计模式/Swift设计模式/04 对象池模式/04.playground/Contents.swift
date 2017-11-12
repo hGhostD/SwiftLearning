@@ -1,9 +1,11 @@
-//: Playground - noun: a place where people can play
-
 import Cocoa
-
-///此模式解决的问题：需要限制某个类型对象的数量，但允许多个个对象的存在
-///常见情况:UITableviewCell 的重用
+/*:
+ > 对象池模式是单例模式的一种变体，它可以为组件提供多个完全相同的对象，而非单个对象。对象池模式一般来管理一组可重用的对象，
+ 
+ 此模式解决的问题：需要限制某个类型对象的数量，但允许多个个对象的存在。例如图书管理系统，需要管理某本书，但是又是多本存在。
+ 
+ 常见情况:UITableviewCell 的重用
+ */
 class Book {
     let author: String
     let title: String
@@ -26,6 +28,7 @@ class Pool<T> {
     private let semaphore: DispatchSemaphore
     
     init(items:[T]) {
+        // 为了给 data 申请合适的内存空间 需要调用这个方法
         data.reserveCapacity(data.count)
         semaphore = DispatchSemaphore(value: items.count)
 
@@ -48,6 +51,9 @@ class Pool<T> {
         arrayQ.sync {
             self.data.append(item)
             semaphore.signal()
+            DispatchWorkItem(qos: .default, flags: .barrier, block: {
+                
+            })
         }
     }
 }
@@ -59,7 +65,6 @@ final class Library {
     init(stockLevel: Int) {
         books = [Book]()
 
-        
         for i in 1...stockLevel {
              books.append(Book(author: "hu", title: "Time", stock: i))
         }
@@ -67,15 +72,15 @@ final class Library {
         pool = Pool<Book>(items: books)
     }
     
-    private class var singleton: Library {
+    private class var Singleton: Library {
         struct SingletonWrapper {
-            static let singleton = Library(stockLevel: 3)
+            static let singleton = Library(stockLevel: 2)
         }
         return SingletonWrapper.singleton
     }
     
     class func checkoutBook(reader: String) -> Book? {
-        let book = singleton.pool.getFromPool()
+        let book = Singleton.pool.getFromPool()
         book?.reader = reader
         book?.checkoutCount += 1
         return book
@@ -83,11 +88,11 @@ final class Library {
     
     class func returnBook(book: Book) {
         book.reader = nil
-        singleton.pool.returnToPool(item: book)
+        Singleton.pool.returnToPool(item: book)
     }
     
     class func printReport() {
-        singleton.books.map {
+        Singleton.books.map {
             print("===Book: \($0.stockNumber)")
             print("Checked out \($0.checkoutCount) tiems")
             if $0.reader != nil {
@@ -105,7 +110,7 @@ var group = DispatchGroup()
 print("开始...")
 for i in 1...30 {
     queue.async(group: group) {
-        var book = Library.checkoutBook(reader: "reader#\(i)")
+        let book = Library.checkoutBook(reader: "reader#\(i)")
         if book != nil {
             
             sleep(arc4random() % 1)
