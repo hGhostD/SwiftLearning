@@ -30,6 +30,7 @@ class Pool<T> {
     init(items:[T]) {
         // 为了给 data 申请合适的内存空间 需要调用这个方法
         data.reserveCapacity(data.count)
+        // 为信号源创建一个计数器
         semaphore = DispatchSemaphore(value: items.count)
 
         items.forEach{
@@ -39,7 +40,9 @@ class Pool<T> {
     
     func getFromPool() -> T? {
         var result: T?
+        // 每次调用 semaphore.wait 都会使计数器的值减一
         if semaphore.wait(timeout: .distantFuture) == .success {
+            //确保在分线程执行操作 如果再主线程操作 整个 APP 就会冻住
             arrayQ.sync {
                 result = self.data.remove(at: 0)
             }
@@ -50,10 +53,8 @@ class Pool<T> {
     func returnToPool(item: T) {
         arrayQ.sync {
             self.data.append(item)
+            // 每次调用 semaphore.singal 都会使计数器的值加一
             semaphore.signal()
-            DispatchWorkItem(qos: .default, flags: .barrier, block: {
-                
-            })
         }
     }
 }

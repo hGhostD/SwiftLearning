@@ -1,10 +1,9 @@
-//: Playground - noun: a place where people can play
-
 import Cocoa
-
-
-///使用建造者模式的第一步是定义建造者类,此类应包含创建Burger对象所需参数的默认值,并为调用组件改变这些默认配置提供相应的方式
-
+/*:
+ > 使用建造者模式可以将创建对象所需的逻辑和默认配置值放入一个建造者类中，这样调用组件只需了解少量配置数据即可创建对象，并且无需了解创建对象所需的默认数据值。
+ 
+ 使用建造者模式的第一步是定义建造者类,此类应包含创建Burger对象所需参数的默认值,并为调用组件改变这些默认配置提供相应的方式
+ */
 class Burger{
     let customerName: String
     let veggieProduct: Bool
