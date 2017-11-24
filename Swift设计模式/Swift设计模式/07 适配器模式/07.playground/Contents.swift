@@ -1,7 +1,11 @@
-//: Playground - noun: a place where people can play
-
 import Cocoa
-
+/*:
+ > 适配器模式通过引入适配器对两个组件进行适配的方式，可以让两个 API 不兼容的组件写作。
+ 
+ 适配器模式通过对不同类的 API 进行适配，将应用使用的 API 映射到组件提供的 API 方式，使得两个不兼容的类可以相互协作。
+ 
+ 实现适配器模式最优雅的方式是使用 Swift extension。使用 extension 可以为无法修改源码的类增加功能。
+ */
 struct Employee {
     var name: String
     var title: String
@@ -29,7 +33,6 @@ class DataSourceBase: EmpployeeDataSource {
     }
     
     func search(_ selector: ((Employee) -> Bool)) -> [Employee] {
-        
         let results = employees.filter {
             selector($0)
         }
@@ -83,7 +86,73 @@ class SearchTool {
     }
 }
 
-let search = SearchTool(dataSource: [SalesDataSource(),DevelopmentDataSource()])
+class NewCoStaffMember {
+    private var name: String
+    private var role: String
+    
+    init(name: String, role: String) {
+        self.name = name
+        self.role = role
+    }
+    
+    func getName() -> String {
+        return name
+    }
+    
+    func getJob() -> String {
+        return role
+    }
+}
+
+class NewCoDirectory {
+    private var staff: [String: NewCoStaffMember]
+    
+    init() {
+        staff = ["Hans": NewCoStaffMember(name: "Hans", role: "role"),"Greta": NewCoStaffMember(name: "Greata", role: "VP,Legal")]
+    }
+    
+    func getStaff() -> [String: NewCoStaffMember] {
+        return staff
+    }
+}
+
+extension NewCoDirectory: EmpployeeDataSource {
+    var employees: [Employee] {
+        return getStaff().values.map {
+            return Employee(name: $0.getName(), title: $0.getJob())
+        }
+    }
+    
+    func searchByTitle(title: String) -> [Employee] {
+        return createEmployees {
+            return $0.getJob().contains(find: title)
+        }
+    }
+    
+    func searchByName(name: String) -> [Employee] {
+        return createEmployees {
+            return $0.getName().contains(find: name)
+        }
+    }
+    
+    private func createEmployees(filter filterClosure: ((NewCoStaffMember) -> Bool)) -> [Employee] {
+        return getStaff().values.filter(filterClosure)
+            .map{
+                return Employee(name: $0.getName(), title: $0.getJob())
+        }
+    }
+}
+
+extension String {
+    func contains(find: String) -> Bool{
+        return self.range(of: find) != nil
+    }
+    func containsIgnoringCase(find: String) -> Bool{
+        return self.range(of: find, options: .caseInsensitive) != nil
+    }
+}
+
+let search = SearchTool(dataSource: [SalesDataSource(), DevelopmentDataSource(), NewCoDirectory()])
 
 print("--List--")
 search.employees.forEach {
