@@ -1,7 +1,10 @@
-//: Playground - noun: a place where people can play
-
 import Cocoa
-
+/*:
+ >  此模式在处理无法修改的类时能发挥强大的功能。可以在不修改对象所属的类或对象的使用者情况下，修改单个对象的行为。
+ 
+ 假设现在我们想为顾客提供礼品服务，但是又不想修改定义的商品类和顾客类
+ */
+/// 定义一个购买商品的类 包含购买商品的名称和价格
 class Purchase {
     private let product: String
     private let price: CGFloat
@@ -19,7 +22,7 @@ class Purchase {
         return price
     }
 }
-
+//// 定义一个顾客的类 可以添加购买商品并付款
 class CustomerAccount {
     let customerName: String
     var purchases = [Purchase]()
@@ -49,6 +52,23 @@ class CustomerAccount {
 
     }
 }
+
+/// 定义一个礼品类
+class PurchaseWithGiftWrap: Purchase {
+    override var description: String { return "\(super.description) + gifwrap" }
+    override var totalPrice: CGFloat { return super.totalPrice + 2 }
+}
+
+class PurchaseWithRibbon: Purchase {
+    override var description: String { return "\(super.description) + ribbon" }
+    override var totalPrice: CGFloat { return super.totalPrice + 1 }
+}
+
+class PurchaseWithDelivery: Purchase {
+    override var description: String { return "\(super.description) + delivery" }
+    override var totalPrice: CGFloat { return super.totalPrice + 5 }
+}
+/// 此时如果我们想给商品添加礼品 只能一个个的创建添加 不能自由组合
 
 let account = CustomerAccount(name: "hu")
 
