@@ -1,6 +1,14 @@
 import Cocoa
+/*:
+ > 组合模式能够将对象以树形结构组织起来，使得外界对单个对象和组合对象的使用具有一致性。
+ */
 
-class Part {
+protocol CarPart {
+    var name: String { get }
+    var price: Float { get }
+}
+
+class Part: CarPart {
     let name: String
     let price: Float
 
@@ -10,20 +18,25 @@ class Part {
     }
 }
 
-
-class CompositePart {
+class CompositePart: CarPart {
     let name: String
-    let parts: [Part]
+    let parts: [CarPart]
 
-    init(name: String, parts: Part...) {
+    init(name: String, parts: CarPart...) {
         self.name = name
         self.parts = parts
+    }
+    
+    var price: Float {
+        return parts.reduce(0) { subtotal, part in
+            return subtotal + part.price
+        }
     }
 }
 
 class CustomerOrder {
     let customer: String
-    let parts: [Part]
+    let parts: [CarPart]
     let compositeParts: [CompositePart]
 
     init(customer: String, part: [Part], composites: [CompositePart]) {
@@ -33,15 +46,15 @@ class CustomerOrder {
     }
 
     var totalPrice: Float {
-        let partReducer = { (subtotal: Float, part: Part) -> Float in
+        let partReducer = { (subtotal: Float, part: CarPart) -> Float in
             return subtotal + part.price
         }
 
         let total = parts.reduce(0, partReducer)
 
-        return compositeParts.reduce(total, { (subtotal, cpart) -> Float in
+        return compositeParts.reduce(total) { (subtotal, cpart) -> Float in
             return cpart.parts.reduce(subtotal, partReducer)
-        })
+        }
     }
 
     func printDeails() {
@@ -58,7 +71,8 @@ class CustomerOrder {
 let doorWindow = CompositePart(name: "window", parts:
                             Part(name: "wp1", price: 100.50),
                             Part(name: "wp2", price: 12))
+let door = CompositePart(name: "Door", parts: doorWindow, Part(name: "Door Loom", price: 80))
 
 let hood = Part(name: "Hood", price: 320)
-let order = CustomerOrder(customer: "Bob", part: [hood], composites: [doorWindow])
+let order = CustomerOrder(customer: "Bob", part: [], composites: [door])
 order.printDeails()
