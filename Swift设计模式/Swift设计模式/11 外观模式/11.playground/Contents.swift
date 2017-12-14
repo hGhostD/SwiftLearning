@@ -1,10 +1,8 @@
-//: Playground - noun: a place where people can play
-
 import Cocoa
-
-//外观模式可以简化复杂的常见任务 API的使用
-//使用此模式后，调用组件的执行常见任务时对底层对象的祥光数据类型不存在依赖
-
+/*:
+ > 外观模式可以简化复杂的常见任务 API的使用
+使用此模式后，调用组件的执行常见任务时对底层对象的祥光数据类型不存在依赖
+*/
 class TreasureMap {
     enum Treasures {
         case GALLEON
