@@ -1,9 +1,7 @@
-//: Playground - noun: a place where people can play
-
 import Cocoa
-
-
-///使用观察者模式可以让一个独享在不对另一个对象产生依赖的情况下，注册并接受该对象发出的通知
+/*:
+> 使用观察者模式可以让一个独享在不对另一个对象产生依赖的情况下，注册并接受该对象发出的通知
+ */
 //实现观察者模式
 protocol Observer: class {
     func notify(user: String, success: Bool)
