@@ -1,9 +1,9 @@
-//: Playground - noun: a place where people can play
-
 import Cocoa
-
-/// 备忘录模式可以捕获一个对象的完整状态，并将其保存到一个备忘录对象中，以后可以根据备忘录重置对象的状态
-
+/*:
+ > 备忘录模式可以捕获一个对象的完整状态，并将其保存到一个备忘录对象中，以后可以根据备忘录重置对象的状态
+ 
+ 备忘录模式中有两个参与者，即原发器和管理者。原发器为需要回退状态的对象，管理者则告诉原发器将状态会退到哪一刻的状态。                 
+*/
 class LedgerEntry {
     let id: Int
     let counterParty: String
