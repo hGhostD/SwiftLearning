@@ -1,8 +1,7 @@
-//: Playground - noun: a place where people can play
-
 import Cocoa
-
-/// 策略模式通过让一组算法对象遵循一个定义明确的协议的,使得我们可以在不修改原有类的情况下拓展其功能
+/*:
+ > 策略模式通过让一组算法对象遵循一个定义明确的协议的,使得我们可以在不修改原有类的情况下拓展其功能
+*/
 //定义一个协议
 protocol Strategy {
     func execute(value:[Int]) -> Int
@@ -10,12 +9,12 @@ protocol Strategy {
 
 class SumStrategy: Strategy {
     func execute(value: [Int]) -> Int {
-        return value.reduce(0) { x,y in x + y}
+        return value.reduce(0) { x,y in x + y }
     }
 }
 class MultiplyStrategy: Strategy {
     func execute(value: [Int]) -> Int {
-        return value.reduce(0) { x,y in x * y}
+        return value.reduce(0) { x,y in x * y }
     }
 }
 
